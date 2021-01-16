@@ -1,0 +1,62 @@
+## YAML Template.
+---
+server:
+  port: 8080
+  contextPath: /home
+---
+#spring:
+#  profiles: local, default
+#datasource:
+#  gobananas:
+#    url: jdbc:h2:~/root
+#    username: root
+#    password: tr@nzist0R!
+#    driverClassName: org.h2.Driver
+#    defaultSchema:
+#    maxPoolSize: 10
+#    hibernate:
+#      hbm2ddl.method: create-drop
+#      show_sql: true
+#      format_sql: true
+#      dialect: org.hibernate.dialect.H2Dialect
+---
+spring:
+  profiles: local, default, dev, prod
+datasource:
+  model:
+    url: jdbc:mysql://localhost:3306/model
+    username: root
+    password: tR@NZIST0r!
+    driverClassName: com.mysql.cj.jdbc.Driver
+    defaultSchema:
+    maxPoolSize: 20
+    hibernate:
+      hbm2ddl.method: update
+      show_sql: true
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQL5Dialect
+      
+#      dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+
+#https://javabydeveloper.com/what-is-dialect-in-hibernate-and-list-of-dialects/
+
+#create-drop
+#create
+#none
+
+
+
+#https://stackoverflow.com/questions/43407411/generationtarget-encountered-exception-accepting-command-error-executing-ddl-v#43408661
+
+#Entity 
+#https://stackoverflow.com/questions/10041938/how-to-choose-the-id-generation-strategy-when-using-jpa-and-hibernate
+#https://stackoverflow.com/questions/20603638/what-is-the-use-of-annotations-id-and-generatedvaluestrategy-generationtype?
+#https://ngdeveloper.com/generationtype-identity-vs-generationtype-sequence-vs-generationtype-auto/#Must_to_know_Hibernate_stuffs
+
+
+
+
+#https://dzone.com/articles/lifecycle-of-a-request-response-process-for-a-spri
+#https://www.objectdb.com/java/jpa/query/named

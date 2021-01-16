@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+       
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!--        <version>2.3.7.RELEASE</version>-->
+         <!--https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent/2.0.9.RELEASE-->
+        <version>2.0.9.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>org.project</groupId>
+    <artifactId>morebananas</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+    <name>morebananas</name>
+    <description>crud_js</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+<!--        <snakeyaml.version>1.16</snakeyaml.version>-->
+        <h2.version>1.4.187</h2.version>
+        <mysql.connector.version>8.0.22</mysql.connector.version>
+        <servlet-api.version>3.1.0</servlet-api.version>
+    </properties>
+
+    <dependencies>
+<!--         spring-boot-starter-parent version2.0.9.RELEASE supports 3.1.0 javax.servlet-api-->
+<!--https://www.baeldung.com/register-servlet-->
+<!--https://abi-laboratory.pro/index.php?view=compat_report&lang=java&l=javax.servlet-api&v1=3.1.0&v2=4.0.0&obj=b23e1&kind=bin-->
+        <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${servlet-api.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      
+      <dependency>
+          <groupId>org.yaml</groupId>
+          <artifactId>snakeyaml</artifactId>
+<!--          <version>${snakeyaml.version}</version>-->
+<!--          <version>1.16</version>-->
+      </dependency>
+      
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+            <!--			<scope>test</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+                
+        <!--Provides Hikari connection pooling support. We could have as well used Tomcat datapooling. 
+        Common DBCP is usually not recommended for performance reasons.-->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.5</version>
+            <type>jar</type>
+        </dependency>
+		
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+            <!--			<scope>runtime</scope>-->
+        </dependency>
+<!--        mysql-connector-java	5.1.47-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+            <!--			<scope>runtime</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+		
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+                
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
+
+
+<!--        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>2.2.5.RELEASE</version>
+            <type>jar</type>
+        </dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
